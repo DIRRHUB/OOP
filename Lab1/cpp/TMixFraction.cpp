@@ -24,24 +24,27 @@ int TMixFraction::getMixNumber() const {
 
 void TMixFraction::inputFraction() {
     try {
-        cout<<" Enter numerator: ";
-        cin >> this->upNumber;
+        cout<<"Enter mix: ";
+        cin>>this->mix;
+        cout<<"Enter numerator: ";
+        cin>>this->upNumber;
         cout<<"Enter denominator: ";
-        cin>> this->downNumber;
+        cin>>this->downNumber;
     }
     catch (...)
     {
-        cout<<"Wrong format of data: ";
+        cout<<"Wrong format of data: " << "\n";
     }
 }
 
 void TMixFraction::printFraction() {
-    cout << "Mix: " + to_string(mix) + " Fraction: " + to_string(upNumber) + "/" + to_string(downNumber);
+    cout << "Mix: " + to_string(mix) + " Fraction: " + to_string(upNumber) + "/" + to_string(downNumber) << "\n";
 }
 
 void TMixFraction::simplifyFraction() {
     this->upNumber = (this->mix * this->downNumber) + this->upNumber;
     int denominator = findGCD(this->upNumber, this->downNumber);
+    if(denominator == 0) return;
     this->upNumber /= denominator;
     this->downNumber /= denominator;
     int upLeft = this->upNumber % this->downNumber;
@@ -81,7 +84,7 @@ TMixFraction TMixFraction::operator*(const TMixFraction &obj) {
 
 TMixFraction TMixFraction::operator/(const TMixFraction &obj) {
     if(obj.downNumber==0){
-        cout<<"Can't divide by 0";
+        cout<<"Can't divide by 0"<< "\n";
         return {};
     }
     this->upNumber = (this->mix * this->downNumber) + this->upNumber;

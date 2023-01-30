@@ -27,18 +27,18 @@ int TFraction::getDownNumber() const {
 void TFraction::inputFraction() {
     try {
         cout<<"Enter numerator: ";
-        cin >> this->upNumber;
+        cin>>this->upNumber;
         cout<<"Enter denominator: ";
-        cin>> this->downNumber;
+        cin>>this->downNumber;
     }
     catch (...)
     {
-        cout<<"Wrong format of data: ";
+        cout<<"Wrong format of data: " << "\n";
     }
 }
 
 void TFraction::printFraction() {
-    cout << "Fraction: " + to_string(upNumber) + "/" + to_string(downNumber);
+    cout << "Fraction: " + to_string(upNumber) + "/" + to_string(downNumber) << "\n";
 }
 
 TFraction TFraction::operator+(const TFraction &obj) {
@@ -59,7 +59,7 @@ TFraction TFraction::operator*(const TFraction &obj) const {
 
 TFraction TFraction::operator/(const TFraction &obj) const {
     if(obj.downNumber==0){
-        cout<<"Can't divide by 0";
+        cout<<"Can't divide by 0" << "\n";
         return {};
     }
     return { this->upNumber*obj.downNumber, obj.upNumber*this->downNumber};
@@ -67,6 +67,7 @@ TFraction TFraction::operator/(const TFraction &obj) const {
 
 void TFraction::simplifyFraction() {
     int denominator = findGCD(this->upNumber, this->downNumber);
+    if(denominator == 0) return;
     this->upNumber /= denominator;
     this->downNumber /= denominator;
 }
