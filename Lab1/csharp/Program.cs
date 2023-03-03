@@ -6,7 +6,7 @@
         {
             TFraction t1 = new TFraction();
             TFraction t2 = new TFraction();
-            TMixFraction tm1= new TMixFraction();
+            TMixFraction tm1 = new TMixFraction();
             TMixFraction tm2 = new TMixFraction();
             bool isMixEnabled = false;
             while(true){

@@ -5,9 +5,8 @@ using namespace std;
 int main (){
     TFraction t1,t2;
     TMixFraction tm1, tm2;
-    bool isEnabled = true;
     bool isMixEnabled = false;
-    while(isEnabled){
+    while(true){
         int input;
         cin>>input;
         switch (input){

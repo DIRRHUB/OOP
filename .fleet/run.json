@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "docker-run",
+            "name": "Run",
+            "imageIdOrName": "",
+        },
+
+    ]
+}

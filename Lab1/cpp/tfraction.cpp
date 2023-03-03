@@ -1,5 +1,4 @@
-﻿
-#include "tfraction.h"
+﻿#include "tfraction.h"
 
 TFraction::TFraction() {
     this->upNumber = 0;
