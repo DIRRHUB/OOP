@@ -66,7 +66,14 @@ namespace Lab2
 
         public void ClearValue(double[] arr, int[] dimensionSizes, int[] fullIndex)
         {
-            Array.Clear(arr, indexFromFullIndex(arr, dimensionSizes, fullIndex), 1);
+            try
+            {
+                Array.Clear(arr, indexFromFullIndex(arr, dimensionSizes, fullIndex), 1);
+            }
+            catch (IndexOutOfRangeException ignored)
+            {
+
+            }
         }
 
         private static double[][] getMatrixBasedFromArray(double[] arr)
@@ -203,11 +210,13 @@ namespace Lab2
                 sum[i] = x[i] + y[i];
             }
 
-            Console.WriteLine("Sum of vectors:");
+            Console.WriteLine("Sum:");
+            Console.Write("[");
             for (int i = 0; i < n; i++)
             {
                 Console.Write(sum[i] + " ");
             }
+            Console.Write("]");
         }
 
 
@@ -233,7 +242,7 @@ namespace Lab2
         {
             int size = (int)Math.Sqrt(arr.Length);
             double[][] matrix = getMatrixBasedFromArray(arr);
-            if(matrix.Length==0) return;
+            if (matrix.Length == 0) return;
             for (int i = 1; i < size; i += 2)
             {
                 Array.Sort(matrix[i]);
@@ -254,7 +263,7 @@ namespace Lab2
         public int CalculateNotZero(double[] arr)
         {
             double[][] matrix = getMatrixBasedFromArray(arr);
-            if(matrix.Length==0) return 0;
+            if (matrix.Length == 0) return 0;
             int count = 0;
             foreach (var t in matrix)
             {
@@ -280,7 +289,7 @@ namespace Lab2
         public double FindMaxRecurringNumber(double[] arr)
         {
             double[][] matrix = getMatrixBasedFromArray(arr);
-            if(matrix.Length==0) return 0;
+            if (matrix.Length == 0) return 0;
             int size = matrix.Length;
             double max = MinValue;
             Dictionary<double, int> freq = new Dictionary<double, int>();

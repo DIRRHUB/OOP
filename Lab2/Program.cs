@@ -65,13 +65,21 @@
                         break;
                     case 2:
                         int[] indexF = operations.FindIndex(arr, dimensionSizes, InputInt("Enter value:"));
-                        Console.Write("[" + indexF[0]);
-                        for (int i = 1; i < dimensionNumber; i++)
+                        if (indexF.Last() == -1)
                         {
-                            Console.Write("," + indexF[i]);
+                            Console.WriteLine("No such indexes");
+                        }
+                        else
+                        {
+                            Console.Write("[" + indexF[0]);
+                            for (int i = 1; i < dimensionNumber; i++)
+                            {
+                                Console.Write("," + indexF[i]);
+                            }
+
+                            Console.WriteLine("]");
                         }
 
-                        Console.WriteLine("]");
                         break;
                     case 3:
                         int[] indexS = new int[dimensionNumber];
